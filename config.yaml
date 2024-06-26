@@ -1,0 +1,36 @@
+DEVICE:
+  USE_GPU: True
+  NGPUS: 2
+  GPU_ID: '0, 1'
+DATASETS:
+  IMG_DATASET: ['EG1800', 'SuperviselyPerson', 'COCO_person']
+  IMG_PATH: './image_person_dataset'
+  VID_DATASET: 'MVPS'
+  VID_PATH: './MVPS'
+MODEL:
+  BACKBONE: 'resnet50'
+  INPUT_SIZE: 480
+TEST:
+  DATA:
+    TYPE: 'VAL'
+    INPUT_SIZE: 480
+  STATE_DICT:
+    PATH: ''
+    MAP_LOCATION: Null
+  OUT_PATH: './results'
+TRAIN:
+  BATCH_SIZE: 4
+  MAX_EPOCH: 60
+  LEARNING_RATE: 2.5e-4
+  WEIGHT_DECAY: 5.e-4
+  POWER: 0.9
+  RESUME:
+    INIT_PATH: Null
+    PATH: Null
+    MAP_LOCATION: Null
+    EPOCH_RESUME: True
+  CKPT_PATH: './checkpoints'
+  MIX_PRECISION: True
+WORKERS: 8
+LOG_PATH: './log'
+RANDOM_SEED: 18493
